@@ -42,6 +42,18 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
         _num1 = 0;
         _num2 = 0;
         _operand = "";
+      } else if (buttonText == "+/-") {
+        if (_output != "0") {
+          if (_output.startsWith("-")) {
+            _output = _output.substring(1);
+          } else {
+            _output = "-$_output";
+          }
+        }
+      } else if (buttonText == "%") {
+        if (_output != "0") {
+          _output = (double.parse(_output) / 100).toString();
+        }
       } else if (buttonText == "+" ||
           buttonText == "-" ||
           buttonText == "/" ||
